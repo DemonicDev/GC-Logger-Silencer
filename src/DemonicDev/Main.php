@@ -3,6 +3,7 @@
 #declare(strict_types=1);
 namespace DemonicDev;
 
+use pocketmine\GarbageCollectorManager;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase{
@@ -14,7 +15,7 @@ class Main extends PluginBase{
         $property = $reflection->getProperty("cycleGcManager");
         $property->setAccessible(true);
 
-        /** @var \GarbageCollectorManager $cycleGcManager */
+        /** @var GarbageCollectorManager $cycleGcManager */
         $cycleGcManager = $property->getValue($memoryManager);
 
         $reflection = new \ReflectionClass($cycleGcManager);
