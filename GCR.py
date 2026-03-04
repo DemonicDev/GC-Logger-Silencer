@@ -19,7 +19,8 @@ def update_php_file(file_path):
             file.write(line)
    
 def Build(var):
-    php_file_path = nat_path + fr"\{var}\src\GarbageCollectorManager.php"
+   # php_file_path = nat_path + fr"\{var}\src\GarbageCollectorManager.php"
+    php_file_path = os.path.join(nat_path, var, "src", "GarbageCollectorManager.php")
     update_php_file(php_file_path)
     print(fr"Updated {php_file_path} to no GarbageCollector outputs ")  
 def getPmFolder():
@@ -53,6 +54,6 @@ def VerInput(a):
             return VerInput(a)
         return g
 def checkIfPmFolder(folder):
-    return os.path.exists(nat_path + fr"\{folder}\src\GarbageCollectorManager.php")
+    return os.path.exists(os.path.join(nat_path, folder, "src", "GarbageCollectorManager.php"))
 Build(getPmFolder())
 exit("Thx for using this Programm <3 \nfeel free to open an issue, for feedback or ideas :D")
